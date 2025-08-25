@@ -29,8 +29,9 @@ spec:
   selector:
     app: app1
   ports:
-    targetPort: 8085
-    port: 80
+    - port: 80
+      targetPort: 8085
+
 
 
 
