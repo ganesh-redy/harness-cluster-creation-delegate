@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+       containers:
+         - name: cal_app
+           image: "{{ .Values.image.name }}"
+           ports:
+             - containerPort: 8085
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service1
+spec:
+  type: LoadBalancer
+  selector:
+    app: app1
+  ports:
+    targetPort: 8085
+    port: 80
+
+
+
+        
