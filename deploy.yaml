@@ -14,7 +14,7 @@ spec:
         app: app1
     spec:
        containers:
-         - name: cal_app
+         - name: cal-app
            image: "{{ .Values.image.name }}"
            ports:
              - containerPort: 8085
